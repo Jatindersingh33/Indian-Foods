@@ -1,0 +1,67 @@
+﻿@inherits UmbracoViewPage<IndianFoods.ContentModels.Page>
+@{
+    var loggedin = User.Identity.IsAuthenticated && Members.IsLoggedIn();
+    var member = Members.GetCurrentMember();
+
+    // NONFUNCTIONAL - need to split the dictionary values sign in | register apart
+    // var signinPrompt = loggedin ? Model.GetDictionaryValue("Sign out") : Model.GetDictionaryValue("Sign in | Register");
+    var registerPrompt = loggedin ? Model.GetDictionaryValue("profile") : Model.GetDictionaryValue("register");
+
+    var signinClass = loggedin ? "gigya-logout" : "gigya-login-register-link";
+    var isHomePage = Model.Name.Equals("home", StringComparison.InvariantCultureIgnoreCase) ? true : false;
+}
+<header class="Header @(isHomePage ? " nav-homepage affix-top is-light " : "" )">
+    @Html.Partial("Navigation/_NavigationHeader", Model.SiteHeader)
+    @*@Html.Partial("Navigation/_MobileNavigation", Model)*@
+    <div class="Header--desktop container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container">
+                    @* NONFUNCTIONAL: telephone, contact us link
+                        <div class="Header-contact pull-left">
+                            <a href="tel:952232456"><i class="icon icon-phone"></i>1-888-OSCARW</a> TODO: phone number from site settings
+                            <a href="">@Model.GetDictionaryValue("contact")</a>
+                        </div>
+                    *@
+                    <div class="Header-actions pull-right">
+                        @{
+                            if (loggedin)
+                            {
+                                <a href="/account/order-history">My Account | </a>
+                                <a class="@signinClass" href="/@registerPrompt">Sign Out</a>
+                            }
+                            else
+                            {
+                                <a class="@signinClass" href="/@registerPrompt?default=signin">Sign In | </a>
+                                <a class="@signinClass" href="/@registerPrompt">Register</a>
+                            }
+                        }
+                        @* NONFUNCTIONAL: sign in, register, search
+                            TODO: move to partial and use when not authenticated, add partial for logout\profile instead of just changing text
+                            <span>|</span>
+                            <a href="#">@registerPrompt</a>
+                        *@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 u-alignCenter @(isHomePage ? " u-noPadding " : "" )">
+                <a class="Header-logo" href="@Model.RootUrl">
+                    <i title="OscarWinter" class="icon icon-logo"></i>
+                </a>
+                @Html.Partial("Navigation/_MainNavigation", Model)
+            </div>
+        </div>
+    </div>
+    @*<div class="container">
+        <div class="Header-search">
+            <a href="#" class="searchInitiate">
+                <i title="@Model.GetDictionaryValue("search", formatOption: PacDig.OscarWinter.ContentModels.DictionaryFormatOption.ProperCase)" class="icon icon-search"></i>
+            </a>
+        </div>
+       
+        @Html.Partial("Navigation/_Basket")
+    </div>*@
+    @*@Html.Partial("Navigation/_Search", Model)*@
+</header>

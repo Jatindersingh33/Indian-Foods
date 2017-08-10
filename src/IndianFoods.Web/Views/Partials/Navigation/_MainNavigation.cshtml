@@ -1,0 +1,20 @@
+﻿@using System.Collections.Generic;
+@inherits UmbracoViewPage<IndianFoods.ContentModels.Page>
+@{
+    var menuItems = Model.MainNavigation;
+    var isHomePage = Model.Name.Equals("home", StringComparison.InvariantCultureIgnoreCase) ? true : false;
+}
+@{
+<nav class="nav-container @(isHomePage ? "" : " container ")">
+    @if (menuItems != null && menuItems.Any())
+    {
+        <ul class="Header-nav list-inline">
+            @foreach (var menuItem in menuItems.Where(m => m.Visible))
+            {
+               <li class="Header-link @(menuItem.Active ? "active" : "")"><a title="@menuItem.Name" href="@menuItem.Url">@menuItem.Name</a> 
+                @*@Html.Partial("Navigation/_SubMenuNavigation", menuItem, new ViewDataDictionary{{"IsHomePage", isHomePage }})*@</li>
+            }
+        </ul>
+    }
+</nav> <!-- #nav-container-->
+}

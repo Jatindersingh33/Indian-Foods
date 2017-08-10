@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndianFoods.Web", "IndianFoods.Web\IndianFoods.Web.csproj", "{E5178145-BB5C-4F6B-98CA-0D0E79328202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndianFoods.ContentModels", "IndianFoods.ContentModels\IndianFoods.ContentModels.csproj", "{D3BC061E-8FE6-4D89-8619-866537362D51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5178145-BB5C-4F6B-98CA-0D0E79328202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5178145-BB5C-4F6B-98CA-0D0E79328202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5178145-BB5C-4F6B-98CA-0D0E79328202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5178145-BB5C-4F6B-98CA-0D0E79328202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3BC061E-8FE6-4D89-8619-866537362D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BC061E-8FE6-4D89-8619-866537362D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3BC061E-8FE6-4D89-8619-866537362D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3BC061E-8FE6-4D89-8619-866537362D51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
